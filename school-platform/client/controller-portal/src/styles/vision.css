@@ -1,0 +1,177 @@
+.vision-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  position: relative;
+}
+
+.vision-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.vision-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 4rem 3rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25),
+              inset 0 0 32px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: shimmer 8s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+  transform: translateY(-5px);
+}
+
+.vision-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 1.5rem 0;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #1f2937 0%, #4b5563 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.vision-text {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: #374151;
+  line-height: 1.8;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Alternative gradient backgrounds for different sections */
+.vision-section.dark {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+.vision-section.dark .glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.vision-section.dark .vision-title {
+  color: #f3f4f6;
+  background: linear-gradient(135deg, #f3f4f6 0%, #d1d5db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.vision-section.dark .vision-text {
+  color: #e5e7eb;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .vision-section {
+    padding: 4rem 1.5rem;
+    min-height: 400px;
+  }
+
+  .glass-card {
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+  }
+
+  .vision-title {
+    margin-bottom: 1rem;
+  }
+
+  .vision-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-section {
+    padding: 3rem 1rem;
+    min-height: 350px;
+  }
+
+  .glass-card {
+    padding: 1.8rem 1.3rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(31, 38, 135, 0.1);
+  }
+
+  .vision-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .vision-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Connection line effect (optional enhancement) */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1f2937, transparent);
+  opacity: 0.3;
+}
